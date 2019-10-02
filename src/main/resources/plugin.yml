@@ -1,0 +1,18 @@
+name: HuntPlayer
+main: com.gmail.llmdlio.huntplayer.HuntPlayer
+version: ${project.version}
+api-version: ${project.bukkitAPIVersion}
+softdepend: [Towny]
+author: LlmDl
+
+commands:
+  hunt:
+    description: Hunts a player.
+    usage: /<command> [player]
+    permission: huntplayer.hunt
+    permission-message: You don't have <permission>
+    
+permissions:
+  huntplayer.hunt:
+    description: Allow a player to hunt someone.
+    default: false
