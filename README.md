@@ -25,25 +25,19 @@ prefix:  A string which defines the prefix used in the plugin output.
 
 ### Changelog:
 1.0: 
-
-  - Initial release on Spigot.
+  * Initial release on Spigot.
 
 0.0.5: 
-
-  - Update to 1.14 and new Towny API.
+  * Update to 1.14 and new Towny API.
 
 0.0.4: 
-
-  – Made players who are in spectator mode appear invisible when hunted.
+  * Made players who are in spectator mode appear invisible when hunted.
 
 0.0.3: 
-
-  – Added town name and plot names to towny output.
+  * Added town name and plot names to towny output.
 
 0.0.2: 
-
-  – Added Towny integration. Delete old config or add ‘usingtowny: true’. Will show Wilderness or Town a hunted player is in.
-
+  * Added Towny integration. Delete old config or add ‘usingtowny: true’. Will show Wilderness or Town a hunted player is in.
+  
 0.0.1: 
-
-  – Initial Release.
+  * Initial Release.
