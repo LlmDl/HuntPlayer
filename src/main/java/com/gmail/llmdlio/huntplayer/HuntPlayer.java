@@ -78,23 +78,25 @@ public final class HuntPlayer extends JavaPlugin {
             sender.sendMessage("World: " + ChatColor.YELLOW + target.getLocation().getWorld().getName().toString());
 
             if (usingTowny) {
-                Location location = target.getLocation();
-                if (TownyAPI.getInstance().isWilderness(location)) {
-
-                    try {
-                        sender.sendMessage("Plot: " + ChatColor.DARK_GREEN + TownyAPI.getInstance().getDataSource()
-                                .getWorld(target.getWorld().getName()).getUnclaimedZoneName().toString());
-                    } catch (NotRegisteredException e) {
-                        e.printStackTrace();
-                    }
-
-                } else if (TownyAPI.getInstance().getTownBlock(location).getName().toString() != "") {
-                    sender.sendMessage("Plot: " + ChatColor.AQUA + TownyAPI.getInstance().getTownName(location)
-                            + ChatColor.WHITE + " Plot Name: " + ChatColor.GREEN
-                            + TownyAPI.getInstance().getTownBlock(location).getName().toString());
-                } else {
-                    sender.sendMessage("Plot: " + ChatColor.AQUA + TownyAPI.getInstance().getTownName(location));
-                }
+            	if (TownyAPI.getInstance().isTownyWorld(target.getLocation().getWorld())) {
+	                Location location = target.getLocation();
+	                if (TownyAPI.getInstance().isWilderness(location)) {
+	
+	                    try {
+	                        sender.sendMessage("Plot: " + ChatColor.DARK_GREEN + TownyAPI.getInstance().getDataSource()
+	                                .getWorld(target.getWorld().getName()).getUnclaimedZoneName().toString());
+	                    } catch (NotRegisteredException e) {
+	                        e.printStackTrace();
+	                    }
+	
+	                } else if (TownyAPI.getInstance().getTownBlock(location).getName().toString() != "") {
+	                    sender.sendMessage("Plot: " + ChatColor.AQUA + TownyAPI.getInstance().getTownName(location)
+	                            + ChatColor.WHITE + " Plot Name: " + ChatColor.GREEN
+	                            + TownyAPI.getInstance().getTownBlock(location).getName().toString());
+	                } else {
+	                    sender.sendMessage("Plot: " + ChatColor.AQUA + TownyAPI.getInstance().getTownName(location));
+	                }
+            	}
             }
 
             if (seeker.getLocation().getWorld() == target.getLocation().getWorld()) {
@@ -102,17 +104,13 @@ public final class HuntPlayer extends JavaPlugin {
                 int negDistanceToSeeker = -distanceToSeeker;
                 Vector vector = target.getLocation().toVector().subtract(seeker.getLocation().toVector());
 
-                if (vector.getX() > (negDistanceToSeeker / 2) && vector.getX() < (distanceToSeeker / 2)
-                        && vector.getZ() < 0.0D) {
+                if (vector.getX() > (negDistanceToSeeker / 2) && vector.getX() < (distanceToSeeker / 2) && vector.getZ() < 0.0D) {
                     sender.sendMessage("Direction: North");
-                } else if (vector.getX() > 0.0D && vector.getZ() > (negDistanceToSeeker / 2)
-                        && vector.getZ() < (distanceToSeeker / 2)) {
+                } else if (vector.getX() > 0.0D && vector.getZ() > (negDistanceToSeeker / 2) && vector.getZ() < (distanceToSeeker / 2)) {
                     sender.sendMessage("Direction: East");
-                } else if (vector.getX() < (distanceToSeeker / 2) && vector.getX() > (negDistanceToSeeker / 2)
-                        && vector.getZ() > 0.0D) {
+                } else if (vector.getX() < (distanceToSeeker / 2) && vector.getX() > (negDistanceToSeeker / 2) && vector.getZ() > 0.0D) {
                     sender.sendMessage("Direction: South");
-                } else if (vector.getX() < 0.0D && vector.getZ() < (distanceToSeeker / 2)
-                        && vector.getZ() > (negDistanceToSeeker / 2)) {
+                } else if (vector.getX() < 0.0D && vector.getZ() < (distanceToSeeker / 2) && vector.getZ() > (negDistanceToSeeker / 2)) {
                     sender.sendMessage("Direction: West");
                 } else if (vector.getX() < 0.0D && vector.getZ() < 0.0D) {
                     sender.sendMessage("Direction: NorthWest");
@@ -141,6 +139,8 @@ public final class HuntPlayer extends JavaPlugin {
                     sender.sendMessage("They are below you.");
                 } else if (seekerHeight > targetHeight && seekerHeight - targetHeight >= 16) {
                     sender.sendMessage("They are slightly below you.");
+                } else if (seekerHeight > targetHeight && seekerHeight - targetHeight >= 8) {
+                	sender.sendMessage("They are very slightly below you.");
                 }
 
                 if (seekerHeight < targetHeight && targetHeight - seekerHeight >= 192) {
@@ -153,7 +153,10 @@ public final class HuntPlayer extends JavaPlugin {
                     sender.sendMessage("They are above you.");
                 } else if (seekerHeight < targetHeight && targetHeight - seekerHeight >= 16) {
                     sender.sendMessage("They are slightly above you.");
+                } else if (seekerHeight < targetHeight && targetHeight - seekerHeight >= 8) {
+                    sender.sendMessage("They are very slightly above you.");
                 }
+
 
                 sender.sendMessage("Blocks Away: " + distanceToSeeker);
                 if (distanceToSeeker < 100) {
