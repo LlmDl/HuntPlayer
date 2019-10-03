@@ -15,4 +15,4 @@ commands:
 permissions:
   huntplayer.hunt:
     description: Allow a player to hunt someone.
-    default: false
+    default: op
