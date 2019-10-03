@@ -37,7 +37,7 @@ prefix:  A string which defines the prefix used in the plugin output.
   * Added town name and plot names to towny output.
 
 0.0.2: 
-  * Added Towny integration. Delete old config or add ‘usingtowny: true’. Will show Wilderness or Town a hunted player is in.
+  * Added Towny integration. ~~Delete old config or add ‘usingtowny: true’. Will show Wilderness or Town a hunted player is in.~~ Towny integration is automatic now.
   
 0.0.1: 
   * Initial Release.
