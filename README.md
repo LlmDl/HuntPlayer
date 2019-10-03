@@ -3,6 +3,8 @@ Author: LlmDl
 
 Version: 1.0
 
+**If you'd like to use this with Towny it requires Towny 0.94.0.14 or newer.**
+
 HuntPlayer is a simple plugin for Bukkit that allows players to use /hunt playername to receive limited information on the whereabouts of other players on the server.
 
 HuntPlayer will show the hunter cardinal directions to the player being hunted, how many blocks away the player is and varying height messages, as long as they are in the same world as the hunter. Only the world the hunted is in is given to the hunter when the two players do not occupy the same world.
